@@ -25,7 +25,7 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
-          value: yes
+          value: "yes"
         - name: MYSQL_DATABASE
           value: pricelist
         - name: MYSQL_PASSWORD
@@ -33,7 +33,8 @@ spec:
         - name: MYSQL_USER
           value: pricelist
         volumeMounts:
-        - mountPath: /var/lib/mysql/data
+        - mountPath: /var/lib/mysql
+          subPath: data
           name: mysql-db
         livenessProbe:
           tcpSocket:
